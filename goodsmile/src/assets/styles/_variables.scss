@@ -1,0 +1,16 @@
+// Definir colores, fuentes y mixins reutilizables
+$primary-color: #ff7f32;
+$gray-0:#ffffff;
+$gray-10: #F8F8F8;
+$gray-50: #DEDEDE;
+$alt-gray: #374151;
+$gray-100: #000;
+$font-stack: 'Arial, sans-serif';
+
+// Mixin para botones
+@mixin button-style {
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
