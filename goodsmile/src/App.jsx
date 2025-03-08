@@ -5,11 +5,13 @@ import Home from "./pages/Home"
 import AllProducts from "./pages/AllProducts"
 import ProductDetails from "./pages/ProductDetails"
 import Cart from "./pages/Cart"
+import { AllProductsProvider } from "./context/ProductsProvider"
 
 function App() {
 
   return (
     <>
+    <AllProductsProvider>
       <NavBar/>
       <Routes>
         <Route path='/' element={<Home/>}/>
@@ -17,6 +19,7 @@ function App() {
         <Route path='/cart' element={<Cart/>}/>
         <Route path='/product-details/:id' element={<ProductDetails/>}/>
       </Routes>
+    </AllProductsProvider>
     </>
   )
 }

@@ -1,9 +1,14 @@
 import React from 'react'
+import { CategoryFilterList } from '../components/ProductCard'
+import Title from '../components/Title'
 
 const AllProducts = () => {
   return (
     <div>
-      <h1>All P</h1>
+      <Title title="Figuras"/>
+      <CategoryFilterList category={"Figuras"}/>
+      <Title title="Accesorios"/>
+      <CategoryFilterList category={"Accesorios"}/>
     </div>
   )
 }

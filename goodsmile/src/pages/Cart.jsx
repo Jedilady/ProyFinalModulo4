@@ -1,9 +1,10 @@
 import React from 'react'
+import Title from '../components/Title'
 
 const Cart = () => {
   return (
     <div>
-      <h1>Cart</h1>
+      <Title title="Shopping cart"/>
     </div>
   )
 }

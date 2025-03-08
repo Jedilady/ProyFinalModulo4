@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Title = () => {
+const Title = ({title}) => {
   return (
     <div className="line-container">
         <hr className="line" />
-        <span className="text">Texto centrado</span>
+        <span className="text">{title}</span>
         <hr className="line" />
     </div>
   )

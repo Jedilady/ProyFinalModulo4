@@ -1,11 +1,14 @@
 import React from 'react'
 import Title from '../components/Title'
+import { AllProductsList } from '../components/ProductCard'
+
 
 const Home = () => {
   return (
     <div>
-      <h1>Home</h1>
-      <Title/>
+      <div className='home-banner'></div>
+      <Title title="Figuras recientes"/>
+      <AllProductsList/>
     </div>
   )
 }
