@@ -17,3 +17,14 @@ const NavBar = () => {
 }
 
 export default NavBar
+
+//TODO
+//Añadir badge al carrito, con el use Effect con algo similar a:
+/*
+//useEffect para verificar que el producto se ha añadido correctamente al carrito
+    useEffect(() => {
+        const item = cart.find((item) => item.id === parseInt(id));
+        item ? setAddMore(true) : setAddMore(false);
+        console.log(item, "item");    
+    }, [cart])
+    */

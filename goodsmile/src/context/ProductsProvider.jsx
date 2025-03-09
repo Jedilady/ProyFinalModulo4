@@ -23,9 +23,3 @@ export function AllProductsProvider({children}) {
     </ProductsContext.Provider>
     );
 }
-
-/*
-export function productHandlerProvider({children}) {
-
-}
-*/

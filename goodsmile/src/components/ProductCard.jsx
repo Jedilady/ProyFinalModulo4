@@ -21,6 +21,38 @@ export const AllProductsList = () => {
   );
 };
 
+export const CategoryFilterList = ({category}) => {
+  const { allProducts } = useContext(ProductsContext);
+
+  const [allFiltered, setAllFiltered] = useState([]);
+
+  useEffect(() => { 
+    setAllFiltered(
+      allProducts.filter((product) => (
+        product.category === category))
+      );
+  }, [allProducts, category]); // Dependencia añadida para actualizar el filtro cuando cambian los productos
+
+  return (
+    <div className="product-grid">
+        {allFiltered.map((producto) => (
+          <div className="product-card" key={producto.id}>
+            <h2>{producto.name}</h2>
+            <img src={producto.image} />
+            <p>
+              {producto.price}€ - {producto.category}
+            </p>
+            <Link to={`/product-details/${producto.id}`}>Ver detalles</Link>
+          </div>
+        ))}
+    </div>
+  );
+};
+
+//TODO - Mix both functions into one, so I can manage filter by all, by category or any other thing
+
+
+// OLD CODE - just for reference
 /*
 export const AllFiguresList = () => {
   const { allProducts } = useContext(ProductsContext);
@@ -55,32 +87,4 @@ export const AllFiguresList = () => {
   );
 };
 */
-
-export const CategoryFilterList = ({category}) => {
-  const { allProducts } = useContext(ProductsContext);
-
-  const [allFiltered, setAllFiltered] = useState([]);
-
-  useEffect(() => { 
-    setAllFiltered(
-      allProducts.filter((product) => (
-        product.category === category))
-      );
-  }, [allProducts, category]); // Dependencia añadida para actualizar el filtro cuando cambian los productos
-
-  return (
-    <div className="product-grid">
-        {allFiltered.map((producto) => (
-          <div className="product-card" key={producto.id}>
-            <h2>{producto.name}</h2>
-            <img src={producto.image} />
-            <p>
-              {producto.price}€ - {producto.category}
-            </p>
-            <Link to={`/product-details/${producto.id}`}>Ver detalles</Link>
-          </div>
-        ))}
-    </div>
-  );
-};
 

@@ -1,9 +1,13 @@
-import React from 'react'
+import { CategoryFilterList } from '../components/ProductCard'
+import Title from '../components/Title'
+import ProductPreview from '../components/ProductPreview'
 
 const ProductDetails = () => {
   return (
     <div>
-      <h1>Details</h1>
+      <ProductPreview/>
+      <Title title="Recomendados"/>
+      <CategoryFilterList category={"Figuras"}/>
     </div>
   )
 }
