@@ -2,6 +2,7 @@ import CartContext from "../context/CartContext";
 import { useContext, useEffect, useState } from "react";
 import Title from '../components/Title'
 import { Link } from "react-router-dom";
+import { PiMinusCircle, PiPlusCircle, PiTrash } from 'react-icons/pi';
 
 //TO DO Separar el contenido en dos componentes (ya creados), uno de la lista, el otro del subtotal
 //pasar el array por props???
@@ -88,15 +89,15 @@ const Cart = () => {
                 {producto.quantity > 1 
                   ? <button 
                       onClick={() => handleMinusItemtoCart(producto)}>
-                        -
+                        <PiMinusCircle />
                     </button>
                   : <button 
                       onClick={() => handleRemoveFromCart(producto)}>
-                        Tr
+                        <PiTrash />
                       </button>}
                 <button 
                   onClick={() => handleSumItemtoCart(producto)}>
-                    +
+                    <PiPlusCircle />
                 </button>
                 <button 
                   onClick={() => handleRemoveFromCart(producto)}>

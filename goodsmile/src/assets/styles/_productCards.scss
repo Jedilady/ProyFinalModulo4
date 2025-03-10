@@ -1,0 +1,50 @@
+@use "variables"  as *;
+
+.product-grid {
+    display: grid;
+
+    .product-card {
+
+        h2 {
+            color: $primary-color;
+        }
+
+        img {
+            max-width: 20%;
+            border-radius: 1rem;
+        }
+    }
+}
+
+//DETAIL
+
+.product-detail {
+    .product-detail-card {
+        h2 {
+            color: $primary-color;
+        }
+
+        img {
+            max-width: 400px;
+            max-height: 400px;
+            border-radius: 1rem;
+        }
+    }
+}
+//CART
+
+.cart-list {
+
+    .cart-product-row {
+        h2 {
+            color: $primary-color;
+        }
+
+        img {
+            max-width: 100px;
+            max-height: 100px;
+            border-radius: 1rem;
+        }
+    }
+
+}

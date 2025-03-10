@@ -103,7 +103,7 @@ const ProductPreview = () => {
                 }
                 {addMore && <p>Product added!</p>}
                 {addMore && <Link to={`/cart`}>Go to cart</Link>}
-                <button onClick={() => {console.log(cart)}}>Cartlog</button>
+                {/* <button onClick={() => {console.log(cart)}}>Cartlog</button> */}
                 
             </div>
         </div>
