@@ -3,6 +3,15 @@ import { useContext, useEffect, useState } from "react";
 import Title from '../components/Title'
 import { Link } from "react-router-dom";
 
+//TO DO Separar el contenido en dos componentes (ya creados), uno de la lista, el otro del subtotal
+//pasar el array por props???
+//
+//TO DO agregar el botón "limpiar carrito"
+// 
+//TO DO agregar alertas de "seguro quieres eliminar?"
+//
+//TO DO Botón fake de "checkout"
+
 const Cart = () => {
 
   // ------ SECCION DEL REDUCER del CART --------- //
