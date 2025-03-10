@@ -11,10 +11,13 @@ const CartHandlerReducer = (state, action) => {
                 id: action.payload.id, 
                 name: action.payload.name, 
                 image: action.payload.image, 
+                price: action.payload.price, 
                 quantity: 1}];
         case "SUM_ITEM":
+            //console.log("SUM_ITEM action received:", action);
+            //console.log("Current state before update:", state);
             return state.map((item) => 
-                item.id === action.payload.id && item.quantity > 1
+                item.id === action.payload.id
                 ? 
                 {...item, quantity: item.quantity+1} 
                 : 
@@ -29,7 +32,7 @@ const CartHandlerReducer = (state, action) => {
                 : 
                 item);
         case "REMOVE_ITEM":
-            return state.filter((item) => item.id !== action.payload);
+            return state.filter((item) => item.id !== action.payload.id);
         case "CLEAR_CART":
             return [];
         default:

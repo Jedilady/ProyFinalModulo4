@@ -33,10 +33,13 @@ const ProductPreview = () => {
 
     //-------- useEffect ---------- //
 
-    //useEffect para anejar los cambios en el array de productos y en el ID para refrescar la info
+    //useEffect para manejar los cambios en el array de productos y en el ID para refrescar la info
     useEffect(() => {
         const prod = allProducts.find((item) => item.id === parseInt(id));
         setProductDetail(prod);
+
+        //reseteamos el Add more al cambiar de ID
+        setAddMore(false);
     }, [id, allProducts]);
 
     console.log(id);
@@ -46,7 +49,7 @@ const ProductPreview = () => {
         const item = cart.find((item) => item.id === parseInt(id));
         item ? setAddMore(true) : setAddMore(false);
         console.log(item, "item");    
-    }, [cart])
+    }, [id, cart])//agregamos ID para que verifique si volvemos al producto, que esté en cart
 
     console.log(addMore, cart);
 
@@ -90,8 +93,10 @@ const ProductPreview = () => {
                 {/*handlerAddCart(productDetail)*/}
                 {productDetail.inStock 
                     ? 
-                    <button onClick={() => addMore ? handleSumItemtoCart(productDetail) : handleAddToCart(productDetail) }>
-                        {addMore ? "Add more" : "Add to cart"}
+                    <button onClick={() => addMore 
+                        ? handleSumItemtoCart(productDetail) 
+                        : handleAddToCart(productDetail) }>
+                            {addMore ? "Add more" : "Add to cart"}
                     </button> 
                     : 
                     <p>Product not available</p>
