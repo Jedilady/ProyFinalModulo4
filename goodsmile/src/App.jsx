@@ -6,7 +6,7 @@ import AllProducts from "./pages/AllProducts"
 import ProductDetails from "./pages/ProductDetails"
 import Cart from "./pages/Cart"
 import { AllProductsProvider } from "./context/ProductsProvider"
-import { ProductsCartProvider } from "./context/ProductsCartProvider"
+//import { ProductsCartProvider } from "./context/ProductsCartProvider"
 import { CartProvider } from "./context/CartContext"
 
 function App() {
