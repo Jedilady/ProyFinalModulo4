@@ -22,7 +22,7 @@ GoodSmile is a simple online store where users can browse a list of Nendoroids, 
 
 1. Clone the repository:  
    ```bash
-   git clone <REPO-URL>
+   git clone [<REPO-URL>](https://github.com/Jedilady/ProyFinalModulo4.git)
    cd goodsmile-store
    ```
 2. Install dependencies:  
