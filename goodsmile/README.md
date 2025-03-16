@@ -1,12 +1,51 @@
-# React + Vite
+# **GoodSmile - Nendoroid Store**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+GoodSmile is a simple online store where users can browse a list of Nendoroids, view product details, and manage a shopping cart by adding or removing items.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠 **Features**
 
-## Expanding the ESLint configuration
+✅ Product list with images, prices, and details.  
+✅ Product detail page with extended information.  
+✅ Shopping cart with options to add, remove, and update item quantities.  
+✅ Navigation between pages using React Router.  
+✅ Mocked product data stored in a JavaScript file.  
+✅ Responsive design with Sass.  
+✅ Custom hook for managing item quantities and subtotals in the cart.  
+✅ State management using `useReducer` and Context API.  
+✅ Icons from React Icons.  
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🚀 **Installation & Usage**
+
+1. Clone the repository:  
+   ```bash
+   git clone <REPO-URL>
+   cd goodsmile-store
+   ```
+2. Install dependencies:  
+   ```bash
+   npm install
+   ```
+3. Run the development server:  
+   ```bash
+   npm run dev
+   ```
+
+---
+
+## 🛠 **Technologies Used**
+
+- React  
+- React Router  
+- useState, useEffect, useReducer  
+- Context API  
+- Sass  
+- React Icons  
+
+---
+
+## 👤 **Author**  
+Made by **jedilady**.
