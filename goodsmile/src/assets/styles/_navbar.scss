@@ -2,7 +2,46 @@
 
 .navbar {
     background-color: $primary-color;
-    padding: 2rem;
+    padding: 0.5rem 1rem;
     color: white;
     width: 100%;
+
+    ul {
+        display: grid;
+        align-items: center;
+        justify-content: flex-end;
+        width: 100%;
+        grid-template-columns: 1fr auto auto;//minmax(100px, auto) 1fr 1fr;
+        gap: 2rem;
+
+        li {
+            svg {
+                margin: 2px 1rem -2px 2px;
+            }
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+    }
+    
+    img {
+        max-width: 180px;
+    }
+    
+    @media screen and (min-width: 440px) {
+        .cart-link-mobile {
+            display: none;
+        }
+    }
+    @media screen and (max-width: 439px) {
+        .cart-link {
+            display: none;
+        }
+
+        img {
+            max-width: 100%;
+        }
+    }
 }

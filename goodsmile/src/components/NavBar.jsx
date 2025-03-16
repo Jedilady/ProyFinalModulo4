@@ -1,15 +1,31 @@
 import { Link } from "react-router-dom"
-import logo from '../assets/img/logo.png';
+import logo from '../assets/img/logo.png'
+import { PiShoppingCart } from 'react-icons/pi';
 
 const NavBar = () => {
   return (
     <div className="navbar">
-        <img src={logo} alt="Good Smile Logo"></img>
+        
         <nav>
             <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/products">Products</Link></li>
-                <li><Link to="/cart">Cart</Link></li>
+                <li className="nav-left">
+                    <Link to="/">
+                        <img src={logo} alt="Good Smile Logo"/>
+                    </Link>
+                </li>
+                <li>
+                    <Link to="/products">Products</Link>
+                </li>
+                <li className="cart-link">
+                    <Link to="/cart">
+                        Cart <PiShoppingCart/>
+                    </Link>
+                </li>
+                <li className="cart-link-mobile">
+                    <Link to="/cart">
+                        <PiShoppingCart/>
+                    </Link>
+                </li>
             </ul>
         </nav>
     </div>
