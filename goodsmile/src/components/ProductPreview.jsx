@@ -78,7 +78,7 @@ const ProductPreview = () => {
     //TODO - DONE convertir esto en un ternario en el return? más sencillo, no?
     //{productDetail.inStock ? <button> : <p>Not available</p>}
 
-    //TODO Show "go to cart" buton after item is added, and block add button 
+    //TODO - DONE Show "go to cart" buton after item is added, and block add button 
     // or convert to "add more"<< this would need the reducer to be modified
     // or not, would need here to change the action of the button to SUM
 
@@ -86,24 +86,34 @@ const ProductPreview = () => {
         <div className="product-detail">
             <div className="product-detail-card">
                 <h2>{productDetail.name}</h2>
-                <img src={productDetail.image} />
-                <p>
-                {productDetail.price}€
-                </p>
-                {/*handlerAddCart(productDetail)*/}
-                {productDetail.inStock 
-                    ? 
-                    <button onClick={() => addMore 
-                        ? handleSumItemtoCart(productDetail) 
-                        : handleAddToCart(productDetail) }>
-                            {addMore ? "Add more" : "Add to cart"}
-                    </button> 
-                    : 
-                    <p>Product not available</p>
-                }
-                {addMore && <p>Product added!</p>}
-                {addMore && <Link to={`/cart`}>Go to cart</Link>}
-                {/* <button onClick={() => {console.log(cart)}}>Cartlog</button> */}
+                <div className="product-detail-grid">
+                    <img src={productDetail.image} />
+                    <div className="product-detail-details">
+                        <p className="product-detail-description">{productDetail.description}</p>
+                        <p className="product-detail-info"><strong>Category: </strong>{productDetail.category}</p>
+                        <p className="product-detail-info"><strong>Genre: </strong>{productDetail.genre}</p>
+                        <div className="product-detail-price">
+                            <p className="product-detail-price-ammount">
+                            €{productDetail.price}
+                            </p>
+                            <p className="product-detail-info"><strong>Availability: </strong>{productDetail.inStock ? "In Stock" : "Not available"}</p>
+                            {/*handlerAddCart(productDetail)*/}
+                            {productDetail.inStock 
+                                ? 
+                                <button className={`btn-addToCart ${addMore ? "btn-more" : "btn-add"}`} onClick={() => addMore 
+                                    ? handleSumItemtoCart(productDetail) 
+                                    : handleAddToCart(productDetail) }>
+                                        {addMore ? "Add more" : "Add to cart"}
+                                </button> 
+                                : 
+                                <p>Product not available</p>
+                            }
+                            {addMore && <p className="product-detail-added">Product added!</p>}
+                            {addMore && <Link className="btn-goToCart" to={`/cart`}>Go to cart</Link>}
+                            {/* <button onClick={() => {console.log(cart)}}>Cartlog</button> */}
+                        </div>
+                    </div>
+                </div>
                 
             </div>
         </div>

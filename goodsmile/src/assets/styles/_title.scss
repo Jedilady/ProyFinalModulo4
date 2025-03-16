@@ -1,17 +1,21 @@
+@use 'variables' as *;
+
 .line-container {
     display: flex;
     align-items: center;
     width: 100%;
+    margin: 2rem auto;
   }
   
   .line {
     flex-grow: 1;
     border: none;
-    border-top: 2px solid black; /* Grosor y color de la línea */
+    border-top: 1px solid $primary-color; /* Grosor y color de la línea */
   }
   
   .text {
     padding: 0 15px; /* Espaciado entre el texto y las líneas */
     font-size: 20px;
     font-weight: bold;
+    color: $alt-gray;
   }

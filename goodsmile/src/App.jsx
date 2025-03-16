@@ -17,12 +17,14 @@ function App() {
       {/* <ProductsCartProvider> */}
       <CartProvider>
         <NavBar/>
-        <Routes>
-          <Route path='/' element={<Home/>}/>
-          <Route path="/products" element={<AllProducts/>}/>
-          <Route path='/cart' element={<Cart/>}/>
-          <Route path='/product-details/:id' element={<ProductDetails/>}/>
-        </Routes>
+        <div className='main-content'>
+          <Routes>
+            <Route path='/' element={<Home/>}/>
+            <Route path="/products" element={<AllProducts/>}/>
+            <Route path='/cart' element={<Cart/>}/>
+            <Route path='/product-details/:id' element={<ProductDetails/>}/>
+          </Routes>
+        </div>
         </CartProvider>
       {/* </ProductsCartProvider> */}
     </AllProductsProvider>

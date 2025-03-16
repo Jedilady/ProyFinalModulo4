@@ -2,7 +2,7 @@ import CartContext from "../context/CartContext";
 import { useContext, useEffect, useState } from "react";
 import Title from '../components/Title'
 import { Link } from "react-router-dom";
-import { PiMinusCircle, PiPlusCircle, PiTrash } from 'react-icons/pi';
+import { PiMinusBold, PiPlusBold, PiTrash } from 'react-icons/pi';
 
 //TO DO Separar el contenido en dos componentes (ya creados), uno de la lista, el otro del subtotal
 //pasar el array por props???
@@ -63,57 +63,72 @@ const Cart = () => {
         a = sum;
         //console.log(sum, a, "b", b);
       }
-      return sum;
+      return sum.toFixed(2);
       //cartUploaded.map(product)product.quantity*product.price
     }
 
   return (
-    <div className="cart-wrapper">
+    <>
       <Title title="Shopping cart" />
-      { cartUpdated.length === 0 && 
-        <>
-          <p>Yoour cart is empty</p>
-          <Link to={'/products'}>Go back to products</Link>
-        </>
-      }
-      { cartUpdated.length !== 0 &&
-        <>
-          <div className="cart-list">
-            {cartUpdated.map((producto) => (
-              <div className="cart-product-row" key={producto.id}>
-                <h2>{producto.name}</h2>
-                <img src={producto.image} />
-                <p>
-                  {producto.price}€ - {producto.quantity}
-                </p>
-                {producto.quantity > 1 
-                  ? <button 
-                      onClick={() => handleMinusItemtoCart(producto)}>
-                        <PiMinusCircle />
-                    </button>
-                  : <button 
-                      onClick={() => handleRemoveFromCart(producto)}>
-                        <PiTrash />
-                      </button>}
-                <button 
-                  onClick={() => handleSumItemtoCart(producto)}>
-                    <PiPlusCircle />
-                </button>
-                <button 
-                  onClick={() => handleRemoveFromCart(producto)}>
-                    Remove
-                </button>
-              </div>
-            ))}
-          </div>
-          <div className="subtotal-card">
-            <p>Subtotal: {subtotalHandler()}</p>
-            
-          </div>
-        </>
-      }
+      <div className="cart-wrapper">
+        { cartUpdated.length === 0 && 
+          <>
+            <p className="cart-empty-msg">Your cart is empty</p>
+            <Link className="btn-main" to={'/products'}>Go back to products</Link>
+          </>
+        }
+        { cartUpdated.length !== 0 &&
+          <div className="cart-wrapper-grid">
+            <div className="cart-list">
+              {cartUpdated.map((producto) => (
+                <div className="cart-product-row" key={producto.id}>
+                  <img src={producto.image} />
+                  <div className="cart-product-row-details">
+                    <h2>{producto.name}</h2>
+                    <p className="cart-product-price">
+                    €{producto.price}
+                    </p>
+                    <div className="cart-product-quantity-wrapper">
+                      <div className="cart-product-quantity-handler">
+                        {producto.quantity > 1 
+                          ? <button 
+                              className="cart-product-btn"
+                              onClick={() => handleMinusItemtoCart(producto)}>
+                                <PiMinusBold />
+                            </button>
+                          : <button 
+                              className="cart-product-btn cart-product-btn-trash"
+                              onClick={() => handleRemoveFromCart(producto)}>
+                                <PiTrash />
+                              </button>}
+                              {producto.quantity}
+                        <button 
+                          className="cart-product-btn"
+                          onClick={() => handleSumItemtoCart(producto)}>
+                            <PiPlusBold />
+                        </button>
+                      </div>
+                      <button 
+                        className="cart-product-btn-remove"
+                        onClick={() => handleRemoveFromCart(producto)}>
+                          Remove
+                      </button>
+                    </div>
 
-    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="subtotal-card">
+              <p>Subtotal: <strong>€{subtotalHandler()}</strong></p>
+              <a className="btn-main">Continue to checkout</a>
+              
+            </div>
+          
+          </div>
+        }
+      </div>
+    </>
   )
 }
 

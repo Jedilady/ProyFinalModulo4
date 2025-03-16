@@ -1,6 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import { ProductsContext } from "../context/productsContext";
-import { Link } from "react-router-dom";
+import ProductCardContent from "./ProductCardContent";
+
 
 export const AllProductsList = () => {
   const { allProducts } = useContext(ProductsContext);
@@ -8,14 +9,7 @@ export const AllProductsList = () => {
   return (
     <div className="product-grid">
         {allProducts.map((producto) => (
-          <div className="product-card" key={producto.id}>
-            <h2>{producto.name}</h2>
-            <img src={producto.image} />
-            <p>
-              {producto.price}€
-            </p>
-            <Link to={`/product-details/${producto.id}`}>Ver detalles</Link>
-          </div>
+          <ProductCardContent key={producto.id} product={producto} />
         ))}
     </div>
   );
@@ -36,14 +30,7 @@ export const CategoryFilterList = ({category}) => {
   return (
     <div className="product-grid">
         {allFiltered.map((producto) => (
-          <div className="product-card" key={producto.id}>
-            <h2>{producto.name}</h2>
-            <img src={producto.image} />
-            <p>
-              {producto.price}€ - {producto.category}
-            </p>
-            <Link to={`/product-details/${producto.id}`}>Ver detalles</Link>
-          </div>
+          <ProductCardContent key={producto.id} product={producto} />
         ))}
     </div>
   );

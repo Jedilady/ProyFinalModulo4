@@ -5,11 +5,11 @@ import { AllProductsList } from '../components/ProductCard'
 
 const Home = () => {
   return (
-    <div>
-      <div className='home-banner'></div>
-      <Title title="Figuras recientes"/>
+    <>
+    <div className='home-banner'></div>
+    <Title title="Figuras recientes"/>
       <AllProductsList/>
-    </div>
+    </>
   )
 }
 

@@ -1,0 +1,26 @@
+@use "variables"  as *;
+
+#root{
+    //for full height of contents
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: stretch;
+}
+
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    //for full height of contents
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem
+}
+
+//***********--BUTTONS--*********//
+.btn-main {
+    @include btn-main-basics;
+    @include btn-main;
+}
