@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import Title from '../components/Title'
 import { Link } from "react-router-dom";
 import { PiMinusBold, PiPlusBold, PiTrash } from 'react-icons/pi';
+import { useCart } from "../customs/useCart";
 
 //TO DO Separar el contenido en dos componentes (ya creados), uno de la lista, el otro del subtotal
 //pasar el array por props???
@@ -45,10 +46,13 @@ const Cart = () => {
 
   useEffect(() => {
     setCartUpdated(cart);
-    subtotalHandler();
+    //subtotalHandler();
   }, [cart]);
 
-    //Manejador del subtotal
+  /*  
+  //Movido al hook personalizado
+
+  //Manejador del subtotal
     const subtotalHandler = () => {
       let a = 0;
       let b = 0;
@@ -66,6 +70,9 @@ const Cart = () => {
       return sum.toFixed(2);
       //cartUploaded.map(product)product.quantity*product.price
     }
+      */
+  
+  const{subtotalHandler} = useCart();
 
   return (
     <>
