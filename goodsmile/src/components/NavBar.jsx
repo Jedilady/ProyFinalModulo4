@@ -1,8 +1,33 @@
 import { Link } from "react-router-dom"
 import logo from '../assets/img/logo.png'
 import { PiShoppingCart } from 'react-icons/pi';
+//para usar el contexto de la cantidad añadida al carrito
+import CartContext from "../context/CartContext";
+import { useContext, useEffect, useState } from "react";
 
 const NavBar = () => {
+  const { cart } = useContext(CartContext);
+
+  const [ cartUpdated, setCartUpdated ] = useState([]);
+
+  useEffect(() => {
+    setCartUpdated(cart);
+    ammountHandler();
+  }, [cart]);
+
+  const ammountHandler = () => {
+    let a = 0;
+    let b = 0;
+    let sum = 0;
+    
+    for (let value of cartUpdated) {
+      b = Number(value.quantity);
+      sum = a + b;
+      a = sum;
+    }
+    return sum;
+  }
+
   return (
     <div className="navbar">
         
@@ -19,11 +44,13 @@ const NavBar = () => {
                 <li className="cart-link">
                     <Link to="/cart">
                         Cart <PiShoppingCart/>
+                        <span className="cart-ammount">{ammountHandler()}</span>
                     </Link>
                 </li>
                 <li className="cart-link-mobile">
                     <Link to="/cart">
                         <PiShoppingCart/>
+                        <span className="cart-ammount">{ammountHandler()}</span>
                     </Link>
                 </li>
             </ul>

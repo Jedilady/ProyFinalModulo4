@@ -15,12 +15,27 @@
         gap: 2rem;
 
         li {
-            svg {
-                margin: 2px 1rem -2px 2px;
-            }
+            //svg { margin: 2px 1rem -2px 2px;}
 
             &:hover {
                 text-decoration: underline;
+            }
+
+            a {
+                display: flex;
+                align-items: center;
+                gap: 0.25rem;
+            }
+
+            .cart-ammount {
+                font-size: 0.75rem;
+                color: $primary-color;
+                background-color: $gray-0;
+                border-radius: 100px;
+                //padding: 0.2rem;
+                min-width: 1.1rem;
+                font-weight: 600;
+                text-align: center;
             }
         }
 
